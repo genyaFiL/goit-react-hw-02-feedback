@@ -22,7 +22,7 @@ class App extends Component {
   };
 
   handleIncrement = ({ target }) => {
-    console.dir(target);
+    // console.dir(target);
     this.setState(prevState => ({
       [target.name]: prevState[target.name] + 1,
     }));
