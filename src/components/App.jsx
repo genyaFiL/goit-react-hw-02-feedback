@@ -33,36 +33,23 @@ class App extends Component {
 
     return (
       <>
-        <div
-          style={{
-            // height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            margin: '30px',
-            // justifyContent: 'center',
-            // alignItems: 'center',
-            color: '#010101',
-          }}
-        >
-          <Section title="Please leave your feedback">
-            <FeedbackOptions
-              options={this.state}
-              onLeaveFeedback={this.handleIncrement}
-            />
-          </Section>
-          {this.countTotalFeedback() ? (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
-          ) : (
-            <Notification message="There is no feedback" />
-          )}
-        </div>
-        ;
+        <Section title="Please leave your feedback">
+          <FeedbackOptions
+            options={this.state}
+            onLeaveFeedback={this.handleIncrement}
+          />
+        </Section>
+        {this.countTotalFeedback() ? (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
       </>
     );
   }
