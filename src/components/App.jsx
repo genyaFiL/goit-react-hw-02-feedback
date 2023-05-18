@@ -11,22 +11,20 @@ class App extends Component {
     bad: 0,
   };
 
-  countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
-  };
+  countTotalFeedback = () =>
+    this.state.good + this.state.neutral + this.state.bad;
 
-  countPositiveFeedbackPercentage = () => {
-    return this.countTotalFeedback()
+  countPositiveFeedbackPercentage = () =>
+    this.countTotalFeedback()
       ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
       : 0;
-  };
 
-  handleIncrement = ({ target }) => {
-    // console.dir(target);
+  handleIncrement = ({ target }) =>
     this.setState(prevState => ({
       [target.name]: prevState[target.name] + 1,
     }));
-  };
+
+  getKeyState = () => Object.keys(this.state);
 
   render() {
     const { good, neutral, bad } = this.state;
@@ -35,7 +33,7 @@ class App extends Component {
       <>
         <Section title="Please leave your feedback">
           <FeedbackOptions
-            options={this.state}
+            options={this.getKeyState()}
             onLeaveFeedback={this.handleIncrement}
           />
         </Section>

@@ -5,7 +5,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <>
       <ul className={css.list}>
-        {Object.keys(options).map(keys => (
+        {options.map(keys => (
           <li key={keys}>
             <button name={keys} onClick={onLeaveFeedback}>
               {keys}
@@ -18,6 +18,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.object.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
